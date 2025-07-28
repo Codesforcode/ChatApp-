@@ -9,14 +9,13 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 
 @Configuration
 @EnableWebSocketMessageBroker // it tells spring that it will handle real time message with the help of web socket
+//it handles where the message will go
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
-
-
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/chat")
-                .setAllowedOrigins("http://localhost:5173")
+                .setAllowedOrigins("http://localhost:8080")
                 .withSockJS();
     }
     @Override
